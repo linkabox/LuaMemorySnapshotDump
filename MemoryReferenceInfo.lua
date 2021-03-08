@@ -189,9 +189,9 @@ local function CollectObjectReferenceInMemory(strName, cObject, cDumpInfoContain
 		end
 
 		-- Check if table is _G.
-		if cObject == _G then
-			strName = strName .. "[_G]"
-		end
+		-- if cObject == _G then
+		-- 	strName = strName .. "[_G]"
+		-- end
 
 		-- Get metatable.
 		local bWeakK = false
@@ -426,9 +426,9 @@ local function CollectSingleObjectReferenceInMemory(strName, cObject, cDumpInfoC
 		end
 
 		-- Check if table is _G.
-		if cObject == _G then
-			strName = strName .. "[_G]"
-		end
+		-- if cObject == _G then
+		-- 	strName = strName .. "[_G]"
+		-- end
 
 		-- Get metatable.
 		local bWeakK = false
@@ -499,7 +499,7 @@ local function CollectSingleObjectReferenceInMemory(strName, cObject, cDumpInfoC
 					CollectSingleObjectReferenceInMemory(strName .. ".[table:value]", v, cDumpInfoContainer)
 				end
 			else
-				CollectSingleObjectReferenceInMemory(strName .. "." .. k, v, cDumpInfoContainer)
+				CollectSingleObjectReferenceInMemory(strName .. "." .. tostring(k), v, cDumpInfoContainer)
 			end
 		end
 
